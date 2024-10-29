@@ -1,2 +1,44 @@
+version: '3.8'
 
+services:
+  myblog-1:
+    build:
+      context: .  
+    container_name: myblog-1
+    ports:
+      - "8765:80"
+
+  myblog-2:
+    build:
+      context: .  
+    container_name: myblog-2
+    ports:
+      - "8766:80"
+
+  myblog-3:
+    build:
+      context: .  
+    container_name: myblog-3
+    ports:
+      - "8767:80"
+
+  myblog-4:
+    build:
+      context: .  
+    container_name: myblog-4
+    ports:
+      - "8768:80"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - myblog-1
+      - myblog-2
+      - myblog-3
+      - myblog-4
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
