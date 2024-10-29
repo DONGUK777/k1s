@@ -3,8 +3,8 @@ import json
 import time
 
 # 기본 설정값
-cpu_scale_out = 90.0  
-cpu_scale_in = 50.0   
+cpu_scale_out = 50.0  
+cpu_scale_in = 30.0   
 # check_interval = 1    
 target_container_name = 'samdul-load_balancer-1'  
 
